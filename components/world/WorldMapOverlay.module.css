@@ -1,0 +1,215 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+.sheet {
+  display: grid;
+  width: min(56rem, 100%);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 24px 60px color-mix(in srgb, var(--color-text-strong) 12%, transparent);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.eyebrow {
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin-top: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.close {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+  cursor: pointer;
+}
+
+.close:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+}
+
+.content {
+  padding: 1rem 1.2rem;
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+
+.ground {
+  fill: var(--color-bg);
+}
+
+.route {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 3;
+  stroke-dasharray: 10 14;
+}
+
+.plaza {
+  fill: color-mix(in srgb, var(--color-accent) 5%, transparent);
+  stroke: var(--color-accent);
+  stroke-dasharray: 5 7;
+  stroke-width: 2;
+}
+
+.plazaText {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-anchor: middle;
+}
+
+.zone {
+  cursor: pointer;
+}
+
+.zone rect {
+  fill: var(--color-surface);
+  stroke: var(--color-border);
+  stroke-width: 2;
+  transition: fill var(--transition), stroke var(--transition);
+}
+
+.zone:hover rect,
+.zone:focus-visible rect {
+  fill: color-mix(in srgb, var(--color-accent) 9%, var(--color-surface));
+  stroke: var(--color-accent);
+}
+
+.zone[data-visited] rect {
+  stroke: color-mix(in srgb, var(--color-accent) 55%, var(--color-border));
+}
+
+.zone:focus {
+  outline: none;
+}
+
+.zone:focus-visible rect {
+  stroke-width: 3;
+}
+
+.zoneIndex {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.zoneName {
+  fill: var(--color-text-strong);
+  font-family: var(--font-mono);
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.zoneMeta {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.exhibitDot {
+  fill: var(--color-accent);
+  opacity: 0.7;
+}
+
+.player circle:first-child {
+  fill: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  stroke: var(--color-accent);
+  stroke-width: 2;
+}
+
+.player circle:last-child {
+  fill: var(--color-accent);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.legend i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+}
+
+.legendZone {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.legendDot {
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.legendPlayer {
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-accent) 20%, transparent);
+}
+
+.footer {
+  padding: 0.8rem 1.2rem 1rem;
+  border-top: 1px solid var(--color-border-soft);
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+@media (max-width: 40rem) {
+  .zoneName {
+    font-size: 30px;
+  }
+
+  .zoneMeta,
+  .zoneIndex {
+    font-size: 18px;
+  }
+}

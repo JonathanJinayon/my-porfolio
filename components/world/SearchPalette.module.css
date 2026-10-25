@@ -1,0 +1,218 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: start center;
+  padding: clamp(1rem, 8vh, 5rem) var(--gutter) var(--gutter);
+  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+.sheet {
+  display: grid;
+  width: min(42rem, 100%);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 24px 60px color-mix(in srgb, var(--color-text-strong) 12%, transparent);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem 0;
+}
+
+.eyebrow {
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.close {
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  cursor: pointer;
+}
+
+.close:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+}
+
+.form {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.8rem 1rem;
+}
+
+.label {
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0.4rem 0.15rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+}
+
+.inputRow:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.inputRow > span {
+  color: var(--color-accent);
+  font-size: 0.8125rem;
+}
+
+.inputRow input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.45rem 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-text-strong);
+  font-size: 0.8125rem;
+}
+
+.inputRow kbd {
+  padding: 0.1rem 0.3rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 2px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+}
+
+.results {
+  display: grid;
+  gap: 1rem;
+  padding: 0 1rem 1rem;
+}
+
+.groupHeading {
+  margin-bottom: 0.35rem;
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.zoneList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.zoneButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+  font-size: 0.625rem;
+  cursor: pointer;
+}
+
+.zoneButton:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+}
+
+.zoneIndex {
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+}
+
+.zoneArrow {
+  color: var(--color-accent);
+}
+
+.resultList {
+  display: grid;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.result {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.15rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-border-soft);
+  background: transparent;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.result:hover .resultTitle {
+  color: var(--color-accent);
+}
+
+.resultMain {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.resultTitle {
+  color: var(--color-text-strong);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.found {
+  color: var(--color-accent);
+}
+
+.resultSummary {
+  color: var(--color-text-secondary);
+  font-size: 0.6875rem;
+}
+
+.resultMeta {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+.footer {
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--color-border-soft);
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+}

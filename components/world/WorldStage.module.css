@@ -1,0 +1,495 @@
+.stageFrame {
+  position: relative;
+  min-width: 0;
+}
+
+.stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(
+      circle at 50% 44%,
+      color-mix(in srgb, var(--color-accent) 8%, transparent),
+      transparent 46%
+    ),
+    var(--color-surface);
+  cursor: crosshair;
+  container-type: inline-size;
+}
+
+.stage::after {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 52%,
+    color-mix(in srgb, var(--color-bg) 42%, transparent) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  background: var(--color-bg);
+  will-change: transform;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-border-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border-soft) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.routes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.routeLines polyline {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 3;
+  stroke-dasharray: 10 14;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+
+.plazaRing {
+  fill: color-mix(in srgb, var(--color-accent) 3%, transparent);
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-dasharray: 5 7;
+  opacity: 0.55;
+}
+
+.plazaInner {
+  fill: var(--color-bg);
+  stroke: var(--color-border);
+  stroke-width: 2;
+}
+
+.compass {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 2;
+}
+
+.plazaLabel,
+.axisLabel {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-anchor: middle;
+}
+
+.axisLabel {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-anchor: start;
+}
+
+.zoneBuilding {
+  --zone-color: var(--color-accent);
+
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.35rem;
+  min-height: 3rem;
+  padding: clamp(0.45rem, 1.6cqi, 1rem);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--zone-color);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  background: color-mix(in srgb, var(--zone-color) 7%, var(--color-surface));
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition),
+    transform var(--transition);
+}
+
+.zoneBuilding::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-border-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border-soft) 1px, transparent 1px);
+  background-size: 24px 24px;
+  content: "";
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.zoneBuilding:hover {
+  border-color: var(--zone-color);
+  background: color-mix(in srgb, var(--zone-color) 12%, var(--color-surface));
+}
+
+.zoneBuilding[data-active] {
+  border-color: var(--zone-color);
+  box-shadow: inset 0 0 0 1px var(--zone-color);
+}
+
+.zoneBuilding[data-zone="developer"] {
+  --zone-color: #2e8b57;
+}
+
+.zoneBuilding[data-zone="science"] {
+  --zone-color: #0d8a9e;
+}
+
+.zoneBuilding[data-zone="inventors"] {
+  --zone-color: #b7791f;
+}
+
+.zoneBuilding[data-zone="library"] {
+  --zone-color: #7857b8;
+}
+
+.zoneBuilding[data-zone="ai"] {
+  --zone-color: #0d8ac4;
+}
+
+:global([data-theme="dark"]) .zoneBuilding[data-zone="developer"] {
+  --zone-color: #58c78d;
+}
+
+:global([data-theme="dark"]) .zoneBuilding[data-zone="science"] {
+  --zone-color: #52c9d8;
+}
+
+:global([data-theme="dark"]) .zoneBuilding[data-zone="inventors"] {
+  --zone-color: #e4b35e;
+}
+
+:global([data-theme="dark"]) .zoneBuilding[data-zone="library"] {
+  --zone-color: #aa8ce8;
+}
+
+:global([data-theme="dark"]) .zoneBuilding[data-zone="ai"] {
+  --zone-color: #5cc8f0;
+}
+
+.zoneTopline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-text-muted);
+  font-size: clamp(0.5rem, 1.5cqi, 0.6875rem);
+  letter-spacing: 0.06em;
+}
+
+.zoneGlyph {
+  color: var(--zone-color);
+  font-size: clamp(0.75rem, 2.2cqi, 1.15rem);
+  line-height: 1;
+}
+
+.zoneName {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  color: var(--color-text-strong);
+  font-size: clamp(0.62rem, 2.1cqi, 1.05rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.zoneTagline {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: clamp(0.48rem, 1.25cqi, 0.6875rem);
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.zoneOpen {
+  position: relative;
+  z-index: 1;
+  color: var(--zone-color);
+  font-size: clamp(0.44rem, 1.1cqi, 0.625rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.exhibitNode {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.nodeDot {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  background: var(--color-bg);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 10%, transparent);
+  transition:
+    background-color var(--transition),
+    transform var(--transition);
+}
+
+.exhibitNode[data-discovered] .nodeDot {
+  background: var(--color-accent);
+}
+
+.exhibitNode[data-nearby] .nodeDot,
+.exhibitNode:hover .nodeDot {
+  background: var(--color-accent);
+  transform: scale(1.35);
+}
+
+.exhibitNode[data-active] .nodeDot {
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--color-accent) 18%, transparent),
+    0 0 0 8px color-mix(in srgb, var(--color-accent) 8%, transparent);
+}
+
+.nodeLabel {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  max-width: 12rem;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+  font-size: 0.625rem;
+  line-height: 1.3;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: opacity var(--transition);
+  white-space: nowrap;
+}
+
+.exhibitNode:hover .nodeLabel,
+.exhibitNode:focus-visible .nodeLabel,
+.exhibitNode[data-nearby] .nodeLabel,
+.exhibitNode[data-active] .nodeLabel {
+  opacity: 1;
+}
+
+.characterLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.characterShadow {
+  fill: color-mix(in srgb, var(--color-text-strong) 24%, transparent);
+  opacity: 0.24;
+}
+
+.characterHalo {
+  fill: color-mix(in srgb, var(--color-accent) 6%, transparent);
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  opacity: 0.32;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: characterPulse 3.2s ease-in-out infinite;
+}
+
+.characterPack {
+  fill: color-mix(in srgb, var(--color-accent) 45%, var(--color-bg));
+  stroke: var(--color-bg);
+  stroke-width: 1.5;
+}
+
+.characterFoot {
+  fill: color-mix(in srgb, var(--color-accent) 55%, var(--color-text-strong));
+  stroke: var(--color-bg);
+  stroke-width: 1.5;
+}
+
+.characterArm {
+  fill: color-mix(in srgb, var(--color-accent) 76%, var(--color-bg));
+  stroke: var(--color-bg);
+  stroke-width: 1.5;
+}
+
+.characterTorso {
+  fill: var(--color-accent);
+  stroke: var(--color-bg);
+  stroke-width: 2;
+}
+
+.characterCollar {
+  fill: none;
+  stroke: var(--color-bg);
+  stroke-linecap: round;
+  stroke-width: 1.4;
+  opacity: 0.8;
+}
+
+.characterChest {
+  fill: var(--color-bg);
+  stroke: color-mix(in srgb, var(--color-accent) 65%, transparent);
+  stroke-width: 1;
+}
+
+.characterHead {
+  fill: var(--color-bg);
+  stroke: var(--color-accent);
+  stroke-width: 2;
+}
+
+.characterVisor {
+  fill: var(--color-accent);
+}
+
+.characterVisorCore {
+  fill: var(--color-bg);
+  opacity: 0.85;
+}
+
+.characterAntenna {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-linecap: round;
+  stroke-width: 1.5;
+}
+
+.characterAntennaTip {
+  fill: var(--color-accent);
+  stroke: var(--color-bg);
+  stroke-width: 1;
+}
+
+@keyframes characterPulse {
+  0%,
+  100% {
+    opacity: 0.26;
+    transform: scale(0.94);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(1.08);
+  }
+}
+
+.frameCorners span {
+  position: absolute;
+  z-index: 6;
+  width: 12px;
+  height: 12px;
+  border-color: var(--color-text-muted);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.frameCorners span:nth-child(1) {
+  top: 0.6rem;
+  left: 0.6rem;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.frameCorners span:nth-child(2) {
+  top: 0.6rem;
+  right: 0.6rem;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.frameCorners span:nth-child(3) {
+  bottom: 0.6rem;
+  left: 0.6rem;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.frameCorners span:nth-child(4) {
+  right: 0.6rem;
+  bottom: 0.6rem;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.stageLegend {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 7;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+@media (max-width: 48rem) {
+  .stageLegend {
+    display: none;
+  }
+
+  .zoneTagline,
+  .zoneOpen {
+    display: none;
+  }
+
+  .zoneBuilding {
+    justify-content: flex-start;
+  }
+}

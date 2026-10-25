@@ -1,0 +1,237 @@
+.experience {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem);
+  align-items: start;
+  gap: 1rem;
+}
+
+.mainColumn {
+  display: grid;
+  min-width: 0;
+  gap: 0.65rem;
+}
+
+.stageColumn {
+  position: relative;
+  min-width: 0;
+}
+
+.statusRow {
+  display: grid;
+  gap: 0.35rem;
+  min-height: 2.4rem;
+}
+
+.status {
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  line-height: 1.5;
+}
+
+.guide {
+  padding-left: 0.55rem;
+  border-left: 2px solid var(--color-accent);
+  color: var(--color-text-secondary);
+  font-size: 0.6875rem;
+  line-height: 1.55;
+}
+
+.guideLabel {
+  margin-right: 0.4rem;
+  color: var(--color-accent);
+  font-size: 0.5625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.inspector {
+  min-width: 0;
+  scroll-margin-top: 5.25rem;
+}
+
+.overview {
+  position: sticky;
+  top: 6rem;
+  display: grid;
+  gap: 0.8rem;
+  max-height: calc(100vh - 7.5rem);
+  overflow: auto;
+  padding: 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  scrollbar-width: thin;
+}
+
+.eyebrow {
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.overviewHeading {
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.overviewText {
+  color: var(--color-text-secondary);
+  font-size: 0.6875rem;
+  line-height: 1.65;
+}
+
+.progressBlock {
+  display: grid;
+  gap: 0.3rem;
+  padding-block: 0.1rem;
+}
+
+.progressLabel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.progressLabel strong {
+  color: var(--color-text-strong);
+  font-size: 0.625rem;
+  font-weight: 600;
+}
+
+.progressTrack {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 1px;
+  background: var(--color-border-soft);
+}
+
+.progressTrack span {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  transition: width var(--transition);
+}
+
+.zoneList {
+  display: grid;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.zoneButton {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.45rem;
+  padding: 0.5rem 0.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-border-soft);
+  background: transparent;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.zoneButton:hover .zoneName {
+  color: var(--color-accent);
+}
+
+.zoneIndex {
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  line-height: 1.5;
+}
+
+.zoneMain {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.zoneName {
+  color: var(--color-text-strong);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.zoneTagline {
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.zoneCount {
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  line-height: 1.5;
+}
+
+.overviewActions {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.625rem;
+  cursor: pointer;
+}
+
+.primaryAction {
+  border: 1px solid var(--color-button-bg);
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+}
+
+.primaryAction:hover {
+  opacity: 0.85;
+}
+
+.secondaryAction {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.secondaryAction:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+}
+
+.overviewHint {
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  line-height: 1.6;
+}
+
+.overviewHint kbd {
+  padding: 0.02rem 0.22rem;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+}
+
+@media (max-width: 64rem) {
+  .experience {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .overview {
+    position: static;
+    max-height: none;
+  }
+}

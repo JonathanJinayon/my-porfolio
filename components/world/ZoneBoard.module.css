@@ -1,0 +1,179 @@
+.board {
+  position: sticky;
+  top: 6rem;
+  min-width: 0;
+  max-height: calc(100vh - 7.5rem);
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.header {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.eyebrow {
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.close {
+  padding: 0.2rem 0.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  cursor: pointer;
+}
+
+.close:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+}
+
+.heading {
+  margin-top: 0.45rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.heading:focus {
+  outline: none;
+}
+
+.tagline {
+  margin-top: 0.25rem;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+}
+
+.body {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.1rem;
+}
+
+.description {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.meta span {
+  padding: 0.12rem 0.35rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.exhibitList {
+  display: grid;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.exhibit {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.65rem 0.25rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-border-soft);
+  background: transparent;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.exhibit:hover .exhibitTitle {
+  color: var(--color-accent);
+}
+
+.exhibitIndex {
+  flex: 0 0 auto;
+  padding-top: 0.1rem;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+}
+
+.exhibitMain {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.exhibitTitle {
+  color: var(--color-text-strong);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.discoveredMark {
+  color: var(--color-accent);
+}
+
+.exhibitSummary {
+  color: var(--color-text-secondary);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+}
+
+.exhibitKind {
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.arrow {
+  flex: 0 0 auto;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.hint {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+  line-height: 1.6;
+}
+
+.hint kbd {
+  padding: 0.05rem 0.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+}
+
+@media (max-width: 64rem) {
+  .board {
+    position: static;
+    max-height: none;
+    scroll-margin-top: 6rem;
+  }
+}

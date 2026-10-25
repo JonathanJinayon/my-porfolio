@@ -1,0 +1,236 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 115;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+.sheet {
+  display: grid;
+  width: min(40rem, 100%);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 24px 60px color-mix(in srgb, var(--color-text-strong) 12%, transparent);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.eyebrow {
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.heading:focus {
+  outline: none;
+}
+
+.close {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  cursor: pointer;
+}
+
+.close:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+}
+
+.body {
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.1rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.stats div {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm);
+}
+
+.stats strong {
+  color: var(--color-text-strong);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.stats span {
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin-bottom: 0.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+  line-height: 1.6;
+}
+
+.recentList {
+  display: grid;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.recentButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 0.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-border-soft);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.6875rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.recentButton:hover {
+  color: var(--color-accent);
+}
+
+.zoneList {
+  display: grid;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.zoneList li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.45rem 0.1rem;
+  border-bottom: 1px solid var(--color-border-soft);
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+.zoneList li[data-visited] .zoneName {
+  color: var(--color-text-secondary);
+}
+
+.zoneIndex {
+  font-size: 0.5625rem;
+}
+
+.zoneCount {
+  font-size: 0.5625rem;
+}
+
+.badgeList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.4rem;
+}
+
+.badgeList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0.45rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  opacity: 0.65;
+}
+
+.badgeList li[data-earned] {
+  border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-border-soft));
+  color: var(--color-text-secondary);
+  opacity: 1;
+}
+
+.badgeMark {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.badgeList strong {
+  display: block;
+  color: var(--color-text-strong);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.badgeList small {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.5625rem;
+  line-height: 1.4;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.footer p {
+  max-width: 24rem;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+}
+
+.clear {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.625rem;
+  cursor: pointer;
+}
+
+.clear:hover {
+  border-color: #b7791f;
+  color: var(--color-text-strong);
+}

@@ -1,0 +1,58 @@
+.portrait {
+  width: 100%;
+  max-width: 18rem;
+  margin: 0 0 0 auto;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  isolation: isolate;
+}
+
+.imageWrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent);
+  mix-blend-mode: color;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  image-rendering: pixelated;
+  filter: grayscale(1) contrast(1.06) brightness(0.98);
+}
+
+:global([data-theme="dark"]) .image {
+  filter: grayscale(1) contrast(1.08) brightness(0.82);
+}
+
+:global([data-theme="dark"]) .imageWrap::after {
+  opacity: 0.2;
+}
+
+.caption {
+  margin-top: 0.625rem;
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+  text-align: right;
+}
+
+@media (max-width: 48rem) {
+  .portrait {
+    max-width: 16rem;
+    margin-inline: auto;
+  }
+
+  .caption {
+    text-align: center;
+  }
+}

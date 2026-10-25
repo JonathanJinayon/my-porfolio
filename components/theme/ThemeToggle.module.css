@@ -1,0 +1,39 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.toggle:hover {
+  border-color: var(--color-text-muted);
+  background: var(--color-surface);
+  color: var(--color-text-strong);
+}
+
+.icon {
+  display: inline-flex;
+}
+
+.moon {
+  display: none;
+}
+
+:global(html[data-theme="dark"]) .sun {
+  display: none;
+}
+
+:global(html[data-theme="dark"]) .moon {
+  display: inline-flex;
+}

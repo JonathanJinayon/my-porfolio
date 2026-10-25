@@ -1,0 +1,229 @@
+.workspace {
+  display: grid;
+  gap: 1rem;
+}
+
+.identity {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.identityName {
+  color: var(--color-text-strong);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.identityRole {
+  margin-top: 0.2rem;
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+.prose {
+  display: grid;
+  gap: 0.9rem;
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.facts {
+  margin: 0;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.fact {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.55rem;
+  border-bottom: 1px solid var(--color-border-soft);
+  font-size: 0.75rem;
+}
+
+.fact dt {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.fact dd {
+  margin: 0;
+  color: var(--color-text-secondary);
+  text-align: right;
+}
+
+.groups {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.groupTitle {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.entries {
+  display: grid;
+}
+
+.entry {
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.entry:first-child {
+  padding-top: 0;
+}
+
+.entry:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.entryHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.entryTitleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.entryIndex {
+  flex: 0 0 auto;
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+.entryTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.entryOrganization {
+  margin-top: 0.2rem;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+}
+
+.entryPeriod {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}
+
+.entryLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+}
+
+.entryLink {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.entryLink:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+.entryPending {
+  color: var(--color-text-muted);
+}
+
+.entryDescription {
+  margin-top: 0.65rem;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+.entry .tags {
+  margin-top: 0.75rem;
+}
+
+.contactAction {
+  margin-top: 1rem;
+}
+
+.contactList {
+  margin: 0;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.contactRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.55rem;
+  border-bottom: 1px solid var(--color-border-soft);
+  font-size: 0.75rem;
+}
+
+.contactRow dt {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.contactRow dd {
+  margin: 0;
+  color: var(--color-text-secondary);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.contactLink {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.contactLink:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+.placeholder {
+  color: var(--color-text-muted);
+}
+
+.fullPortfolio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  justify-self: start;
+  margin-top: 0.25rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+.fullPortfolio:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
