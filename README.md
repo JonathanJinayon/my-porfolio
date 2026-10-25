@@ -82,4 +82,5 @@ Most portfolio copy lives in [`lib/content.ts`](lib/content.ts): name, title, in
 ## Deployment
 
 The app is ready to deploy on [Vercel](https://vercel.com/new). Any Node.js host that supports Next.js works as well — build with `npm run build` and start with `npm run start`.
-website link - my-porfolio-ot5g7w36u-jonathanjinayons-projects.vercel.app
+
+- Website link - [MyPortfolioLink](my-porfolio-ot5g7w36u-jonathanjinayons-projects.vercel.app)
