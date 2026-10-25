@@ -6,8 +6,9 @@ The site includes the standard portfolio sections plus an interactive `World` ex
 
 ## Features
 
-- Single-page portfolio: Hero, About, Tech Stack, Projects, Experience, and Contact.
+- Single-page portfolio: a merged About/intro section, Tech Stack, Projects, Experience, Certifications, and Contact.
 - `/world` — an interactive knowledge world with a player, maps, exhibits, search, and a journal.
+- A rule-based portfolio assistant: a floating chat panel whose answers come from a local knowledge base built from `lib/content.ts`. No API calls and no data leaves the page.
 - Light/dark theme with a persisted preference and no flash on load.
 - Route-safe navigation, a skip link, and reduced-motion support.
 - Cache Components enabled (`cacheComponents` + `partialPrefetching`), with PPR as the default rendering model.
@@ -51,13 +52,15 @@ app/                    Routes, root layout, global styles, design tokens
   world/                Interactive knowledge world
   playground/           Permanent redirect to /world
 components/
+  chatbot/              Floating portfolio assistant
   layout/               Header, Footer
-  sections/             Hero, About, TechStack, Projects, Experience, Contact
+  sections/             About, TechStack, Projects, Experience, Certifications, Contact
   ui/                   Button, Container, Section, Tag, Project/Experience items
   theme/                Theme toggle
   world/                World engine, HUD, panels, demos, exhibits
 lib/
   content.ts            Editable portfolio content
+  chatbot/              Assistant knowledge base and rule engine
   theme.ts              Theme initialization script
   knowledge/            World exhibit content and search index
   world/                Layout, movement, collision, pathfinding, journal logic
@@ -67,10 +70,11 @@ public/                 Static assets (portraits, icons)
 
 ## Editing Content
 
-Most portfolio copy lives in [`lib/content.ts`](lib/content.ts): name, title, intro, about paragraphs, facts, tech groups, projects, experience, contact intro, and social links.
+Most portfolio copy lives in [`lib/content.ts`](lib/content.ts): name, title, about paragraphs, facts, tech groups, projects, experience, certifications, contact intro, and social links.
 
-- Project entries are still placeholders — replace them with real names, descriptions, and technologies.
+- Project and certification entries are still placeholders — replace them with real names, issuers, dates, and links.
 - Update the site metadata in [`app/layout.tsx`](app/layout.tsx).
+- Assistant answers and keyword rules live in [`lib/chatbot/knowledge.ts`](lib/chatbot/knowledge.ts); the matching logic is in [`lib/chatbot/engine.ts`](lib/chatbot/engine.ts). Most answers are generated from `lib/content.ts`, so they update automatically when content changes.
 - World exhibit content lives under [`lib/knowledge/`](lib/knowledge).
 
 ## Notes on Configuration

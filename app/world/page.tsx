@@ -14,7 +14,7 @@ export default function WorldPage() {
     <div className={styles.page}>
       <Container>
         <header className={styles.intro}>
-          <p className={styles.eyebrow}>06 / World</p>
+          <p className={styles.eyebrow}>07 / World</p>
           <h1 className={styles.title}>Jonathan&apos;s Knowledge World</h1>
           <p className={styles.description}>
             Walk through six districts built from ideas about software,

@@ -23,6 +23,13 @@ export interface ExperienceEntry {
   description: string;
 }
 
+export interface Certification {
+  name: string;
+  issuer: string;
+  year: string;
+  credentialUrl?: string;
+}
+
 export interface SocialLink {
   label: string;
   value: string;
@@ -43,11 +50,6 @@ export interface ProfileImage {
 export interface SiteContent {
   name: string;
   title: string;
-  eyebrow: string;
-  intro: string;
   location: string;
-  focus: string;
-  availability: string;
-  focusAreas: string[];
   profileImage: ProfileImage;
 }

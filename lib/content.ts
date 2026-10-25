@@ -1,4 +1,5 @@
 import type {
+  Certification,
   ExperienceEntry,
   Fact,
   NavLink,
@@ -11,13 +12,7 @@ import type {
 export const site: SiteContent = {
   name: "Jonathan Jinayon",
   title: "Software Engineer",
-  eyebrow: "// software engineer",
-  intro:
-    "I build software, solve problems, and explore how systems work. I'm focused on backend development, clean code, and designing reliable applications while continuously improving my skills.",
-  location: "Metro Cebu, Philippines",
-  focus: "Java, Spring Boot, and System Design",
-  availability: "Building and learning",
-  focusAreas: ["Java", "Spring Boot", "REST APIs", "React", "TypeScript"],
+  location: "Bohol, Philippines",
   profileImage: {
     src: "/profile-pixel.png",
     alt: "Portrait of Jonathan Jinayon",
@@ -30,19 +25,20 @@ export const navLinks: NavLink[] = [
   { label: "Stack", href: "/#stack" },
   { label: "Projects", href: "/#projects" },
   { label: "Experience", href: "/#experience" },
+  { label: "Certifications", href: "/#certifications" },
   { label: "Contact", href: "/#contact" },
   { label: "World", href: "/world" },
 ];
 
 export const aboutParagraphs: string[] = [
-  "I'm a Computer Science graduate currently working as a Software Engineer. I enjoy building software, solving technical problems, and turning ideas into practical applications. My background includes Java, Spring Boot, REST APIs, and full-stack development, and I'm continuously developing my skills through hands-on experience.",
-  "My interests extend beyond application development into system design, artificial intelligence, and large language models (LLMs). I'm curious about how software systems work under the hood and how AI can be integrated into applications to solve real-world problems. I believe in continuous learning, writing maintainable code, and growing into a well-rounded engineer.",
+  "My path into software started with curiosity about how things are built. That curiosity grew into a focus on backend development and eventually into a Computer Science degree and a career as a Software Engineer.",
+  "What keeps me engaged is the why behind a system: how it is structured, how data moves through it, and how newer tools like AI and LLMs can make it more useful. I care about clear code, thoughtful tradeoffs, and learning alongside people who take pride in their craft. I am especially interested in building solutions."
 ];
 
 export const facts: Fact[] = [
   { label: "Based in", value: "Bohol, Philippines" },
-  { label: "Focus", value: "AI, LLMs, and Backend Engineering" },
-  { label: "Learning", value: "LLM Integration, AI Agents, and System Design" },
+  { label: "Currently", value: "Software Engineer" },
+  { label: "Exploring", value: "AI, LLMs, and System Design" },
   { label: "Open to", value: "Collaboration and Knowledge Sharing" },
 ];
 
@@ -109,6 +105,19 @@ export const experience: ExperienceEntry[] = [
     period: "2021",
     description:
       "Started my programming journey with the fundamentals of coding, sparking an ongoing interest in software development and technology.",
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    name: "Accenture Tech AmplifAI Program",
+    issuer: "Accenture",
+    year: "20 October 2025 - 2 January 2026.",
+  },
+  {
+    name: "Introduction to Modern AI Course",
+    issuer: "Cisco Networking Academy",
+    year: "2025",
   },
 ];
 

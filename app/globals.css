@@ -3,7 +3,7 @@
     Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --content-width: 60rem;
   --gutter: clamp(1.25rem, 4vw, 2rem);
-  --section-space: clamp(4.5rem, 9vw, 7rem);
+  --section-space: clamp(2.25rem, 4vw, 3rem);
   --radius-sm: 3px;
   --radius-md: 5px;
   --radius-lg: 8px;

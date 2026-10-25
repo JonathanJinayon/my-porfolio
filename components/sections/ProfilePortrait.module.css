@@ -1,7 +1,7 @@
 .portrait {
   width: 100%;
-  max-width: 18rem;
-  margin: 0 0 0 auto;
+  max-width: 15rem;
+  margin: 0;
 }
 
 .imageWrap {
@@ -43,16 +43,11 @@
   margin-top: 0.625rem;
   color: var(--color-text-muted);
   font-size: 0.6875rem;
-  text-align: right;
+  text-align: left;
 }
 
 @media (max-width: 48rem) {
   .portrait {
-    max-width: 16rem;
-    margin-inline: auto;
-  }
-
-  .caption {
-    text-align: center;
+    max-width: none;
   }
 }

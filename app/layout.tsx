@@ -3,6 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Chatbot } from "@/components/chatbot/Chatbot";
 import { themeInitScript } from "@/lib/theme";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <Chatbot />
       </body>
     </html>
   );

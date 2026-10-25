@@ -67,7 +67,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link className={styles.wordmark} href="/">
+        <Link className={styles.wordmark} href="/#about">
           {site.name}
         </Link>
 

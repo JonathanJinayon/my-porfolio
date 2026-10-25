@@ -7,7 +7,7 @@ export function Contact() {
   const links = [email, ...socialLinks];
 
   return (
-    <Section id="contact" index="05" title="Contact">
+    <Section id="contact" index="06" title="Contact">
       <div className={styles.grid}>
         <div>
           <p className={styles.intro}>{contactIntro}</p>

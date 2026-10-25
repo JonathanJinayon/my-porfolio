@@ -1,0 +1,71 @@
+.list {
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1;
+  gap: 1rem;
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.index {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.issuer {
+  margin-top: 0.25rem;
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+}
+
+.year {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.link {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+@media (max-width: 32rem) {
+  .item {
+    flex-direction: column;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

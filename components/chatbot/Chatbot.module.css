@@ -1,0 +1,295 @@
+.trigger {
+  position: fixed;
+  right: max(
+    var(--gutter),
+    calc((100% - var(--content-width)) / 2 + var(--gutter))
+  );
+  bottom: clamp(1rem, 4vw, 2rem);
+  z-index: 95;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  box-shadow: 0 6px 20px
+    color-mix(in srgb, var(--color-text-strong) 10%, transparent);
+  cursor: pointer;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.trigger:hover {
+  border-color: var(--color-accent);
+  background: var(--color-surface-hover);
+  color: var(--color-accent-hover);
+}
+
+.panel {
+  position: fixed;
+  right: max(
+    var(--gutter),
+    calc((100% - var(--content-width)) / 2 + var(--gutter))
+  );
+  bottom: calc(clamp(1rem, 4vw, 2rem) + 3.75rem);
+  z-index: 96;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  width: min(22rem, calc(100vw - 2rem));
+  height: min(32rem, calc(100vh - 7rem));
+  height: min(32rem, calc(100dvh - 7rem));
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  box-shadow: 0 24px 60px
+    color-mix(in srgb, var(--color-text-strong) 12%, transparent);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border-soft);
+  background: var(--color-surface);
+}
+
+.eyebrow {
+  color: var(--color-text-strong);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.status {
+  margin-top: 0.1rem;
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+}
+
+.close {
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  cursor: pointer;
+  transition:
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.close:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+}
+
+.messages {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  overflow-y: auto;
+  padding: 0.9rem 1rem;
+}
+
+.message {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 88%;
+}
+
+.assistant {
+  justify-self: start;
+}
+
+.user {
+  justify-self: end;
+  justify-items: end;
+}
+
+.bubble {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 3px var(--radius-md) var(--radius-md) var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  line-height: 1.65;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.user .bubble {
+  border-color: transparent;
+  border-radius: var(--radius-md) 3px var(--radius-md) var(--radius-md);
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+}
+
+.caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: -0.15em;
+  background: var(--color-accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.link {
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: 0.625rem;
+  text-decoration: none;
+  transition:
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.link:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text-strong);
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.suggestion {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.suggestion:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-hover);
+}
+
+.composer {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  border-top: 1px solid var(--color-border-soft);
+  background: var(--color-surface);
+}
+
+.composer input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: 0;
+  background: var(--color-bg);
+  color: var(--color-text-strong);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.composer input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.composer button {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--color-button-bg);
+  border-radius: var(--radius-sm);
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.composer button:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.composer button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.note {
+  padding: 0 1rem 0.7rem;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.5625rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 32rem) {
+  .panel {
+    left: var(--gutter);
+    right: var(--gutter);
+    width: auto;
+  }
+
+  .trigger {
+    right: var(--gutter);
+    bottom: var(--gutter);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trigger,
+  .close,
+  .link,
+  .suggestion,
+  .composer button {
+    transition: none;
+  }
+
+  .caret {
+    animation: none;
+  }
+}
